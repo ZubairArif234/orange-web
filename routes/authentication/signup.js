@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const joi = require('joi');
+const jwt = require('jsonwebtoken')
 const userSignupModel = require('../../all_schema/userSignup');
 
 const signup = async (req, res) => {
@@ -33,6 +34,15 @@ const hash = bcrypt.hashSync(data.password, 10);
       last_name: data.last_name,
       email: data.email,
       password: hash,
+    });
+    jwt.sign({userSignup}, privat_key,  function(err, token) {
+      if (err){
+          console.log(err);
+
+      }else{
+
+          console.log(token);
+      }
     });
 
     await userSignup.save();
