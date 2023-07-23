@@ -17,6 +17,7 @@ const useSignup = new schema({
     password :{
         type:String,
         require:true,
+        minlength:8
         
     },
 },{

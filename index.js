@@ -2,7 +2,7 @@ const express = require('express')
 const authentication = require('./routes/authentication')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://zubair098:zubairorange@orangeWeb.erkg7qi.mongodb.net/')
+mongoose.connect()
 .then(()=>console.log('connected'))
 const app = express()
 const port = process.env.port || 3001
